@@ -93,6 +93,19 @@ pip install "Django>=3.1,<3.2" "djangorestframework>=3.12,<3.15"
 
 > The tracked `project_env/` folder contains only the Windows launcher scripts from the original development machine, not the installed packages. Create a fresh environment as shown above.
 
+### Set environment variables
+
+Settings are read from environment variables (see `.env.example`):
+
+- `DJANGO_SECRET_KEY`: secret key (falls back to an insecure dev value; always set it outside local development)
+- `DJANGO_DEBUG`: `True` to enable debug mode (defaults to `False`)
+- `DJANGO_ALLOWED_HOSTS`: comma-separated host names (defaults to `localhost,127.0.0.1`)
+
+```bash
+# Windows PowerShell: $env:DJANGO_DEBUG = "True"
+export DJANGO_DEBUG=True
+```
+
 ### Migrate, create an admin user and run
 
 ```bash
@@ -152,13 +165,13 @@ curl -H "Authorization: Token <your-token>" http://127.0.0.1:8000/api/...
 
 ## ⚙️ Configuration
 
-The project does not read environment variables yet. All configuration lives in `profiles_project/settings.py`:
+Configuration lives in `profiles_project/settings.py`; security-sensitive values come from environment variables:
 
-| Setting | Current value | Notes |
+| Setting | Source / default | Notes |
 | --- | --- | --- |
-| `SECRET_KEY` | Hard-coded development key | Replace and load from the environment before any deployment |
-| `DEBUG` | `True` | Set to `False` in production |
-| `ALLOWED_HOSTS` | `[]` | Add your host names in production |
+| `SECRET_KEY` | `DJANGO_SECRET_KEY`, default `dev-insecure-change-me` | Always set a strong random value before any deployment |
+| `DEBUG` | `DJANGO_DEBUG`, default `False` | Set `DJANGO_DEBUG=True` only for local development |
+| `ALLOWED_HOSTS` | `DJANGO_ALLOWED_HOSTS`, default `localhost,127.0.0.1` | Comma-separated host names |
 | `DATABASES` | SQLite at `BASE_DIR / 'db.sqlite3'` | `db.sqlite3` is git-ignored |
 | `TIME_ZONE` | `UTC` | |
 
@@ -188,7 +201,7 @@ profiles-rest-api-django/
 - [ ] Permission so users can only update their own profile
 - [ ] Token login endpoint (`/api/login/`) using `ObtainAuthToken`
 - [ ] `requirements.txt` with pinned versions
-- [ ] Move `SECRET_KEY`, `DEBUG` and `ALLOWED_HOSTS` to environment variables
+- [x] Move `SECRET_KEY`, `DEBUG` and `ALLOWED_HOSTS` to environment variables
 - [ ] Unit tests for models and API endpoints
 
 ## 🤝 Contributing
