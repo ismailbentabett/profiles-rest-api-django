@@ -23,8 +23,8 @@ You can expect an acknowledgement within a few days. Once the issue is confirmed
 
 ## Deployment guidance
 
-The settings in this repository are development defaults (`DEBUG = True`, a hard-coded `SECRET_KEY`, empty `ALLOWED_HOSTS`). Before deploying:
+`SECRET_KEY`, `DEBUG` and `ALLOWED_HOSTS` are read from the `DJANGO_SECRET_KEY`, `DJANGO_DEBUG` and `DJANGO_ALLOWED_HOSTS` environment variables (see `.env.example`). Before deploying:
 
-- Generate a new `SECRET_KEY` and load it from the environment.
-- Set `DEBUG = False` and configure `ALLOWED_HOSTS`.
+- Generate a new secret key and set it in `DJANGO_SECRET_KEY`.
+- Leave `DJANGO_DEBUG` unset (or `False`) and set `DJANGO_ALLOWED_HOSTS`.
 - Serve the app over HTTPS and run `python manage.py check --deploy`.
