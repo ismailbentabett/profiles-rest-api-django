@@ -1,0 +1,62 @@
+name: Bug report
+description: Report something that does not work as expected in Profiles REST API.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. Please check existing issues first.
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: A clear description of the bug.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include the request (method, URL, headers, body) if the bug involves an endpoint.
+      placeholder: |
+        1. Run `python manage.py runserver`
+        2. Send `curl -i http://127.0.0.1:8000/...`
+        3. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: input
+    id: python
+    attributes:
+      label: Python version
+      placeholder: "3.8.x"
+    validations:
+      required: true
+  - type: input
+    id: packages
+    attributes:
+      label: Django and DRF versions
+      description: Output of `pip show django djangorestframework`.
+      placeholder: "Django 3.1.x, djangorestframework 3.14.x"
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - Other
+  - type: textarea
+    id: logs
+    attributes:
+      label: Traceback or server logs
+      render: text

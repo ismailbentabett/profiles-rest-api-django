@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title">
+  <title id="title">Profiles REST API logo</title>
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0C4B33"/>
+      <stop offset="1" stop-color="#44B78B"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="240" height="240" rx="56" fill="url(#tile)"/>
+  <!-- profile inside API braces -->
+  <path d="M88 64 C68 64 64 74 64 90 V112 C64 122 58 128 48 128 C58 128 64 134 64 144 V166 C64 182 68 192 88 192" fill="none" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M168 64 C188 64 192 74 192 90 V112 C192 122 198 128 208 128 C198 128 192 134 192 144 V166 C192 182 188 192 168 192" fill="none" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="128" cy="106" r="22" fill="#FFFFFF"/>
+      <path d="M90 176 C90 152 108 140 128 140 C148 140 166 152 166 176 Z" fill="#FFFFFF"/>
+</svg>
